@@ -1,6 +1,10 @@
 slurm/clusterSnakemake.sh
 slurm/config.yaml
+slurm/log/*
+snakefile_old
 logs/*
+.RData
+.Rhistory
 list/Da_Resteggs_4lakes.metadata.csv*
 .snakemake/
 *.fastq*
