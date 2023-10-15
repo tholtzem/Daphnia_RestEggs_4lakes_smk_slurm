@@ -7,10 +7,9 @@ Snakemake workflow for the execution on the leo5 HPC cluster with the SLURM batc
 
 ## Information on the tutorial
 
-This workflow is designated for the analysis of population structure, population summary statistics,  and gene flow, and the performance of ancestry paintings.
+This workflow is designated for the analysis of population structure, population summary statistics, recent gene flow/hybridization and past introgression in the water flea *Daphnia*.
 
-As input we use whole genome sequencing data in the form of realigned bam files. For more information on the pre-processing process see ...
-
+As input we use whole genome sequencing data in the form of realigned bam files. For more information on the pre-processing process see  the [Daphnia_RestEggs_snakemake_pbs_2.0 Tutorial](https://github.com/tholtzem/Daphnia_RestEggs_snakemake_pbs_2.0/tree/master).
 
 ======================================================
 
@@ -58,8 +57,8 @@ rsync -avP /scratch/c7701178/snakemake/* ./
 1. Testing and execution of snakemake in working directory (where your snakefile is located)
 
 2. Slurm specific files and logs are in slurm/ directory
-* cluster submission script for main job (slurm/clusterSnakemake.sh) **Do not forget to change the job-name and mail-user!**
-* configuration profile for slurm (slurm/config.yaml)
+* cluster submission script for main job (slurm/clusterSnakemake_template.sh) **Do not forget to change the filename (to slurm/clusterSnakemake.sh), the job-name and mail-user!**
+* configuration profile for slurm (slurm/config_template.yaml) **Do not forget to change the filename (to slurm/config.yaml)!**
 * sbatch log files (output & error files) are sent to slurm/log/
 
 3. The snakefile:
@@ -73,7 +72,7 @@ rsync -avP /scratch/c7701178/snakemake/* ./
 
 5. The snakemake configuration file (config/config.yaml) contains the paths to adapters, Kraken2 database and references 
 
-6. Sample information and metadata are in list/samples.tsv
+6. Sample information and metadata are in list/samples.csv
 
 7. Data was downloaded from https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz **NOT required for c770 group!**
 
@@ -94,12 +93,14 @@ sbatch slurm/clusterSnakemake.sh
 
 ```
 
-## Check jobs
+## Check/cancel jobs
 
 ```
-# all jobs
+# check all jobs
 sq
-# your jobs only
+# check your jobs only
 squ
+# cancel job
+scancel <jobid>
 ```
 

@@ -1,0 +1,6 @@
+prefix,sample_id,species,latitude,longitude,location,region,DNA source,data_type,mapper,reference,layer_cm,layer_years,Kraken,period
+54058_ID1725_2-B-9S_S1_L001,B-9S,eggs,47.61306,9.395358,LC,EU,egg,pe,bbmap,HiC,29-30,1954-1956,pass,PRE
+93090_ID2632_1-200B_S27_L003,VAR17_200B,eggs,45.8308,8.7166,VAR,EU,egg,pe,bbmap,HiC,,,pass,REF
+93151_ID2632_66-395B_S88_L003,ANN17_395B,eggs,45.8523,6.1809,ANN,EU,egg,pe,bbmap,HiC,,,pass,REF
+AMM66.bb.HiC,AMM66,galeata,48.0022,11.1174,Ammersee,EU,clone,pe,bbmap,HiC,,,pass,REF
+Siegen.bb.HiC,SIEGEN,curvirostris,50.887631,8.017752,Siegen,EU,clone,pe,bbmap,HiC,,,pass,REF
