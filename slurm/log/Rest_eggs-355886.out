@@ -1,0 +1,13 @@
+  Loading Anaconda3/2023.10/miniconda-base-2023.10
+  To use conda commands in your current shell session
+  and activate the base environment, first do:
+    eval "$($UIBK_CONDA_DIR/bin/conda shell.bash hook)"
+  To list available environments:
+    conda env list
+  To activate any of conda's environments, then do:
+    conda activate <environment>
+STARTED on Di Okt 10 14:15:53 CEST 2023
+Depth file does not exist
+Population pair file for 2Dsfs and fst does not exist
+Population combination file for Dstats does not exist
+FINISHED on Di Okt 10 14:17:05 CEST 2023

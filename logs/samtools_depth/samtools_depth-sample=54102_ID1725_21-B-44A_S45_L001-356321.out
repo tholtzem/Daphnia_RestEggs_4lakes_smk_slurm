@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=3218, disk_mib=3069
+Select jobs to execute...
+
+[Tue Oct 10 14:28:27 2023]
+Job 0:  Count per position depth per sample using samtools depth 
+Reason: Missing output files: depth/54102_ID1725_21-B-44A_S45_L001.realigned.bam.depth.gz
+
+
+    samtools depth -aa realigned/54102_ID1725_21-B-44A_S45_L001.realigned.bam | cut -f3 | gzip > depth/54102_ID1725_21-B-44A_S45_L001.realigned.bam.depth.gz 2> log/54102_ID1725_21-B-44A_S45_L001.realigned.bam.depth.log
+    
+[Tue Oct 10 14:29:01 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+Depth file does not exist
+Population pair file for 2Dsfs and fst does not exist
+Population combination file for Dstats does not exist

@@ -1,0 +1,15 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=240000, mem_mib=228882, disk_mb=1000, disk_mib=954
+Select jobs to execute...
+
+[Sun Oct 15 12:38:53 2023]
+Job 0:  Calculate genotype likelihoods and call SNPs for all bam files using angsd setting various cutoffs 
+Reason: Missing output files: angsd/DLGC/angsd_GL2_minInd330_maf0.05_minDepth330_maxDepth13715.done
+
+
+    module load singularity/3.8.7-python-3.10.8-gcc-8.5.0-e6f6onc
+    singularity exec --home $PWD:$HOME /scratch/c7701178/bio/angsd+ngsrelate.sif /opt/angsd/angsd -b depth/stats/DLGC_realignedBAM_df1.list -ref ref/Dgaleata_M5_PBasm.FINAL.fasta -out angsd/DLGC/angsd_GL2_minInd330_maf0.05_minDepth330_maxDepth13715 -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -minMapQ 30 -minQ 20 -skipTriallelic 1 -minInd 330 -setMinDepthInd 1 -setMinDepth 330 -setMaxDepth 13715 -GL 2 -doGlf 2 -doMajorMinor 1 -doMaf 1 -SNP_pval 1e-6 -minMaf 0.05 -doCounts 1 2> log/DLGC/angsd_GL2_minInd330_maf0.05_minDepth330_maxDepth13715.log
+    
