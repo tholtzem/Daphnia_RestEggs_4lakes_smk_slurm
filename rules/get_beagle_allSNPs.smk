@@ -8,7 +8,7 @@ rule get_beagle_allSNPs:
   output:
     touch('angsd/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}.done')
   log: 'log/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}.log'
-  threads: 2
+  threads: 4
   resources: mem_mb=240000, walltime="120:00:00"
   message:
     """ Calculate genotype likelihoods and call SNPs for all bam files using angsd setting various cutoffs """
