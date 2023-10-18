@@ -17,11 +17,12 @@ rule all:
 		expand('angsd/{sets}/index_globalSNP_angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}.done', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth),
 		expand('angsd/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_globalSNP.chr', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth),
 		expand('pcangsd/{sets}/PCAngsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_cov_admix.done', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth),
-		#expand('ngsLD/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_sub_geno.beagle.gz', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure),
-		#expand('ngsLD/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_sub_pos.gz', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure),
-		#expand('ngsLD/{sets}/run_ngsLD_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_sub.ld.gz', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure),
-		#expand('ngsLD/{sets}/run_LDpruning_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.done', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.1', '0.1', '0.1', '0.1']),
-		#expand('ngsLD/{sets}/LDpruned_snps_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.list', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.1', '0.1', '0.1', '0.1']),
+		expand('LD_decay/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_geno.beagle.gz', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth),
+		expand('LD_decay/{sets}/angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_pos.gz', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth),
+		expand('LD_decay/{sets}/ngsLD_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{kb}kb_dist.ld.gz', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth, kb=['0', '100']),
+		expand('LD_decay/{sets}/ngsLD_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{kb}kb_dist.LDdecay.pdf', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth, kb=['0', '100'])
+		#expand('LD_deacy/{sets}/run_LDpruning_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{kb}kb_dist_{Minweight}Minweight.done', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.1', '0.1', '0.1', '0.1']),
+		#expand('ngsLD/{sets}/LDpruned_snps_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.list', zip, sets=['DLGC'], GL=['2'], minMaf=['0.05'], IND=N, MinDepth=MinDepth, MaxDepth=MaxDepth, kb=['0', '100'], Minweight=['0.1', '0.5']),
 		#expand('ngsLD/{sets}/index_SNPs_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.done', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.5', '0.5', '0.5', '0.5']),
 		#expand('ngsLD/{sets}/LDpruned_snps_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.chr', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.5', '0.5', '0.5', '0.5']),
 		#expand('angsd/{sets}/LDpruned_angsd_GL{GL}_minInd{IND}_maf{minMaf}_minDepth{MinDepth}_maxDepth{MaxDepth}_{Minweight}Minweight.done', zip, sets=sets_structure, GL=GL_structure, minMaf=minMaf, IND=N_structure, MinDepth=MinDepth_structure, MaxDepth=MaxDepth_structure, Minweight=['0.1', '0.1', '0.1', '0.1']),
@@ -111,7 +112,7 @@ rule all:
 include: "rules/eggs2.0.smk"
 include: "rules/get_beagle_allSNPs.smk"
 include: "rules/PCAngsd_allSNPs.smk"
-#include: "rules/ngsLD.smk"
+include: "rules/ngsLD.smk"
 #include: "rules/get_beagle_LDprunedSNPs.smk"
 #include: "rules/PCAngsd_LDprunedSNPs.smk"
 #include: "rules/estimate_ngsLD.smk"
