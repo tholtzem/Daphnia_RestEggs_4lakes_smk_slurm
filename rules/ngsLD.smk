@@ -44,7 +44,7 @@ rule estimate_ngsLD:
     """
     module load singularity/3.8.7-python-3.10.8-gcc-8.5.0-e6f6onc
     N_SITES=`zcat {input.position} | wc -l` &&
-    singularity exec --home $PWD:$HOME /scratch/c7701178/bio/ngs+tools.sif ngsLD --geno {input.geno} --pos {input.position} --probs --n_ind {wildcards.IND} --n_sites $N_SITES --max_kb_dist {wildcards.kb} --max_snp_dist 0 --min_maf 0.05 --rnd_sample 0.01 --n_threads {threads} | gzip --best > {output} 2> {log}
+    singularity exec --home $PWD:$HOME /scratch/c7701178/bio/ngs+tools.sif /opt/ngsTools/ngsLD/ngsLD --geno {input.geno} --pos {input.position} --probs --n_ind {wildcards.IND} --n_sites $N_SITES --max_kb_dist {wildcards.kb} --max_snp_dist 0 --min_maf 0.05 --rnd_sample 0.01 --n_threads {threads} | gzip --best > {output} 2> {log}
     """
 
 
